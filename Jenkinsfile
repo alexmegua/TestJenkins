@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Rew1ndy/TestJenkins.git'
+                git branch: 'main', url: 'https://github.com/alexmegua/TestJenkins.git'
                 // Проверяем структуру репозитория
                 bat 'dir game'  // Выводим содержимое папки game
             }
