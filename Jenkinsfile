@@ -25,11 +25,16 @@ pipeline {
             }
         }
 
-        stage('Publish Results') {
-            steps {
+stage('Publish Results') {
+    steps {
+        script {
+            // Примусово публікуємо навіть після помилок
+            catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                 junit 'reports/*.xml'
             }
         }
+    }
+}
     }
 
     post {
